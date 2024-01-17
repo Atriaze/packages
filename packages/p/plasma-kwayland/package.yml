@@ -1,0 +1,35 @@
+# TODO Unfuck this once Plasma 6 is landed
+name       : plasma-kwayland
+version    : 5.93.0
+release    : 1
+source     :
+    - https://download.kde.org/unstable/plasma/5.93.0/kwayland-5.93.0.tar.xz : cad4fa9a57467cb1fbb4fca83729fa5417e5399e17eb323a4d8de1c62448e01a
+homepage   : https://community.kde.org/Frameworks
+license    :
+    - BSD-3-Clause
+    - LGPL-2.1-only
+component  : programming.library
+summary    : Qt-style API to interact with wayland
+description: |
+    KWayland is a Qt-style API to interact with the wayland-client and wayland-server API.
+optimize   : lto
+builddeps  :
+    - pkgconfig(Qt6Designer)
+    - pkgconfig(Qt6WaylandClient)
+    - pkgconfig(wayland-protocols)
+    - pkgconfig(wayland-server)
+    - pkgconfig(x11)
+    - pkgconfig(xkbcommon)
+    - extra-cmake-modules
+    - plasma-wayland-protocols-devel
+rundeps    :
+    - devel :
+        - extra-cmake-modules
+        - qt6-tools-devel
+        - wayland-devel
+setup      : |
+    %cmake_kf6
+build      : |
+    %ninja_build
+install    : |
+    %ninja_install
