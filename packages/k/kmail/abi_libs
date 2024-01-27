@@ -16,4 +16,5 @@ kmail
 kmailpart.so
 kontact_kmailplugin.so
 kontact_summaryplugin.so
-libkmailprivate.so.5
+libkmailprivate.so.6
+libmailfilteragentprivate.so.6
